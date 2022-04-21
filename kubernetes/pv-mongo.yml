@@ -1,0 +1,20 @@
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: pv-mongo
+  labels:
+    type: local
+    app: mongo
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteMany
+  hostPath:
+    path: "/var/www/git/lessons/Module9/volumes/mongo"
+
+ #   nfs:
+ #     server: 172.31.39.63
+      # Exported path of your NFS server
+ #     path: "/html"

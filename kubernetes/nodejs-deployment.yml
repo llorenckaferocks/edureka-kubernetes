@@ -1,0 +1,26 @@
+kind: Deployment
+metadata:
+  name: nodejs
+  labels:
+    app: nodejs
+spec:
+  selector:
+    matchLabels:
+      app: nodejs
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: nodejs
+    spec:
+      containers:
+        - image: devopsedu/employee
+          name: nodejs
+          ports:
+            - containerPort: 8888
+              name: nodejs         # which data will be stored
+      volumes:
+        - name: nodejs-pv
+          persistentVolumeClaim:
+            claimName: pvc-nodejs

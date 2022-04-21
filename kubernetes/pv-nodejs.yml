@@ -1,0 +1,20 @@
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: pv-nodejs
+  labels:
+    type: local
+    app: nodejs
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 500Mi
+  accessModes:
+    - ReadWriteMany
+  hostPath:
+    path: "/var/www/git/lessons/Module9/volumes/nodejs"
+
+      #   nfs:
+      #     server: 172.31.39.63
+    # Exported path of your NFS server
+  #     path: "/html"
