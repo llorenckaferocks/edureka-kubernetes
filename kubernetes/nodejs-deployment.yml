@@ -1,4 +1,4 @@
-apiVersion: v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nodejs
@@ -20,7 +20,10 @@ spec:
           name: nodejs
           ports:
             - containerPort: 8888
-              name: nodejs         # which data will be stored
+              name: nodejs
+      volumeMounts:
+        - name: nodejs-pv
+            mountPath: /opt/sample/Employee
       volumes:
         - name: nodejs-pv
           persistentVolumeClaim:
