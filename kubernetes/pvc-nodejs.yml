@@ -3,8 +3,10 @@ kind: PersistentVolumeClaim
 metadata:
   name: pvc-nodejs
   labels:
+    type: local
     app: nodejs
 spec:
+  storageClassName: manual
   accessModes:
     - ReadWriteMany
   resources:
