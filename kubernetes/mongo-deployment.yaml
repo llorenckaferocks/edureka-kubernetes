@@ -32,7 +32,7 @@ spec:
                   key: mongo-root-password
           volumeMounts:
             - name: mongo-pv
-                mountPath: /data/db
+              mountPath: /data/db
       volumes:
         - name: mongo-pv
           persistentVolumeClaim:
